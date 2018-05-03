@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'appointments_app/style.css' %}">
+    <title>Update/Edit Appointments</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Edit Appointment</h1>
+
+        <a href="{% url 'appointments:index' %}">Back to My Appointments</a><br>
+        <a href="{% url 'users:logout' %}">Log-Out</a><br><br>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form action="{% url 'appointments:edit' current_apt.id %}" method='post'>
+            {% csrf_token %}
+            <label for="date">Date:</label>
+            <input type="date" value="{{ current_date }}" name="date"><br>
+            <label for="time">Time:</label>
+            <input type="time" value="{{ current_time }}" name="time"><br>
+            <label for="tasks">Tasks:</label>
+            <input type="text" value="{{ current_apt.task }}" name="tasks"><br>
+            <select name="status">
+                <option value="current_status">{{ current_apt.status }}</option>
+                <option value="done">Done</option>
+                <option value="pending">Pending</option>
+                <option value="missed">Missed</option>
+            </select>
+            <input type="submit" name="" value="Update">
+        </form>
+
+    </div>
+</body>
+</html>

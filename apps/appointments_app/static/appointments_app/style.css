@@ -1,0 +1,54 @@
+*{
+    vertical-align: top;
+    font-style: inherit;
+    border: 0 none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+#wrapper{
+    width: 1000px;
+    text-align: center;
+    padding: 10px;
+}
+
+.form{
+    width: 400px;
+    height: 200px;
+    outline: 1px solid black;
+    display: inline-block;
+}
+
+label{
+    display: inline-block;
+    margin-top: 8px;
+}
+
+input, select{
+    outline: 1px solid black;
+    padding: 2px;
+    margin-top: 8px;
+}
+
+button{
+    outline: 1px solid black;
+    padding: 2px;
+    margin-top: 8px;
+}
+
+ul{
+    list-style: none;
+}
+
+table, thead, tbody, th, td {
+    width: 500px;
+    border: 1px solid black;
+}
+
+.error{
+    color: red;
+}
+
+.success{
+    color: green;
+}
